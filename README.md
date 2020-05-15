@@ -20,5 +20,3 @@ kubectl apply -k overlays/prod
 ```bash
 kubectl delete namespace prod-bitwarden
 ```
-
-
