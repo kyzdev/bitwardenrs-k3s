@@ -15,7 +15,7 @@ git clone https://github.com/kyzdev/bitwardenrs-k3s
 cd bitwardenrs-k3s
 kubectl apply -k overlays/prod
 ```
-## Uninstall
+## Uninstallation
 
 ```bash
 kubectl delete namespace prod-bitwarden
