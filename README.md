@@ -5,8 +5,8 @@ A kubectl YAML to deploy a BitwardenRS-Server on a Kubernetes Stack
 ## Post-Installation
 
 You can tune the prod or dev Kustomize Overlay with :
-- bitwarden-deployment.yaml : to match your storage driver (in my example I use an NFS driver)
-- bitwarden-ingressroute.yaml : to match your FQDN
+- bitwarden-deployment.yaml : to match your storage driver (in my example I use a NFS driver),
+- bitwarden-ingressroute.yaml : to match your FQDN.
 
 ## Installation 
 
