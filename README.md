@@ -1,6 +1,6 @@
 # bitwardenrs-k3s
 
-A kubectl YAML to deploy a BitwardenRS-Server on a Kubernetes Stack
+A kubectl YAML to deploy a BitwardenRS/Server on Kubernetes
 
 ## Post-Installation
 
