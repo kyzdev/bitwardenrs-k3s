@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingressroutetls
+spec:
+  routes:
+  - match: Host(`vault.n0secure.org`)
+    kind: Rule
+    services:
+    - name: prod-bitwarden
+      port: 80
+    middlewares:
+      - name: prod-bitwarden-headers

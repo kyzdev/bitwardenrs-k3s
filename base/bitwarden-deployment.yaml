@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bitwarden
+  labels:
+    app: bitwarden
+spec:
+  ports:
+    - name: web
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app: bitwarden
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: bitwarden-claim
+  labels:
+    app: bitwarden
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-storage
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bitwarden
+  labels:
+    app: bitwarden
+spec:
+  selector:
+    matchLabels:
+      app: bitwarden
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: bitwarden
+    spec:
+      containers:
+      - image: bitwardenrs/server:latest
+        name: bitwarden
+        ports:
+        - containerPort: 80
+          name: bitwarden-web
+        volumeMounts:
+        - name: bitwarden-storage
+          mountPath: /data
+      volumes:
+      - name: bitwarden-storage
+        persistentVolumeClaim:
+          claimName: bitwarden-claim

@@ -1,0 +1,6 @@
+namespace: bitwarden
+resources:
+- bitwarden-deployment.yaml
+- bitwarden-ingressroute.yaml
+- bitwarden-headers.yaml
+- bitwarden-namespace.yaml

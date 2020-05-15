@@ -1,0 +1,11 @@
+namespace: prod-bitwarden
+bases:
+- ../../base
+patchesStrategicMerge:
+- bitwarden-deployment.yaml
+- bitwarden-ingressroute.yaml
+images:
+- name: bitwardenrs/server
+  newName: bitwardenrs/server
+  newTag: 1.14.2-alpine
+namePrefix: prod-
